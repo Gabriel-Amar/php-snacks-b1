@@ -13,7 +13,7 @@
             "puntiCasa" => "33",
             "puntiOspite" => "60",
         ]
-        ];
+    ];
 
 $name = $_GET['name'];
 $mail = $_GET['mail'];
@@ -121,29 +121,29 @@ while (count($newArray) < 15) {
 $paragrafo = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint quod sapiente maiores, quae blanditiis ea, aliquid aperiam facere vel facilis perspiciatis aut. Quis tenetur amet impedit eum sapiente tempore sint deserunt illum necessitatibus aperiam commodi, architecto quas eaque qui rerum. Cumque illo velit dolores saepe quaerat atque nulla vero sapiente!"
 ?>
 <?php
- 
- $db = [
-     'teachers' => [
-         [
-             'name' => 'Michele',
-             'lastname' => 'Papagni'
-         ],
-         [
-             'name' => 'Fabio',
-             'lastname' => 'Forghieri'
-         ]
-     ],
-     'pm' => [
-         [
-             'name' => 'Roberto',
-             'lastname' => 'Marazzini'
-         ],
-         [
-             'name' => 'Federico',
-             'lastname' => 'Pellegrini'
-         ]
-     ]
- ];
+
+$db = [
+    'teachers' => [
+        [
+            'name' => 'Michele',
+            'lastname' => 'Papagni'
+        ],
+        [
+            'name' => 'Fabio',
+            'lastname' => 'Forghieri'
+        ]
+    ],
+    'pm' => [
+        [
+            'name' => 'Roberto',
+            'lastname' => 'Marazzini'
+        ],
+        [
+            'name' => 'Federico',
+            'lastname' => 'Pellegrini'
+        ]
+    ]
+];
 
 // foreach ($db as $y => $y_value){
 //     if(strpos($db, "teachers") !== false){
@@ -178,6 +178,9 @@ $paragrafo = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint quo
     .blue{
         color: blue;
     }
+    ul{
+        list-style-type: none;
+    }
 </style>
 </head>
 <body>
@@ -196,17 +199,19 @@ $paragrafo = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint quo
     <p><?php echo $message ?></p>
 
     <h2>Snack 3</h2>
-    <p><?php
-        // echo $alert
-    ?></p>
 
-    <ul><?php foreach($posts as $x => $x_value){
-    ?>
+    <ul><?php foreach($posts as $x => $x_value){?>
     <li>
-        <?php echo "Data" . $x; ?> <br>
-        <?php echo  $x_value[0]["title"]; ?><br>
-        <?php echo  $x_value[0]["text"]; ?><br>
-        <?php echo  $x_value[0]["author"]; }?>
+        <?php echo "Data: " . $x; ?> <br>
+        <?php
+            foreach($x_value as $prop => $item){
+                echo "<li>{$item["title"]}</li>";
+                echo "<li>{$item["author"]}</li>";
+                echo "<li>{$item["text"]}</li>";
+            };
+    }?>    
+
+    
     </li>
     </ul>
 
